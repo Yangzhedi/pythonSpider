@@ -22,6 +22,9 @@ def get_links_from(channel, pages, who_sells=0):
             # print link.get('href')      # http://zhuanzhuan.58.com/detail/774777200171630596z.shtml?fullCate=5%2C36&fullLocal=1&from=pc
             # print item_link             # http://zhuanzhuan.58.com/detail/774777200171630596z.shtml
             url_list.insert_one({'url': item_link, 'title': item_title})
+            print item_link,item_title
+            if item_link != 'http://jump.zhineng.58.com/jump':
+                get_item_info(item_link)
     else:
         pass
 
@@ -35,7 +38,6 @@ def get_item_info(url):
     else:
         title = soup.title.text
         price = soup.select('span.price_now i')[0].text
-        # date = soup.select('.time')[0].text
         area = soup.select('.palce_li span i')[0].text # if soup.find_all('span', 'c_25d') else None
-        # item_info.insert_one({'title': title, 'price': price, 'area': area, 'url': url})
-        print {'title': title, 'price': price, 'area': area, 'url': url}
+        item_info.insert_one({'title': title, 'price': price, 'area': area, 'url': url})
+        print {'title': title, 'price': price, 'area': area}

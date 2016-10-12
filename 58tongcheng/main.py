@@ -8,6 +8,5 @@ def get_all_links_from(channel):
         get_links_from(channel,num)
 
 if __name__ == '__main__':
-    # 创建进程池
     pool = Pool()
     pool.map(get_all_links_from,channel_list.split())

@@ -1,2 +1,2 @@
 # pythonSpider
-some python spiders
+some python spiders with BeautifulSoup 
