@@ -20,7 +20,6 @@ def counts2pages(Tag):
         pages = int(str)/51 + 1
     return pages
 
-
 def get_follow_counts_pages(url,person,boo):
     followXXX = 'following' if boo else 'followers'
     true_url = url + person + '?tab=' + followXXX
@@ -47,6 +46,3 @@ def get_follow_lists(url,person,boo,pages = 1):
         print default_url+i.get('href')
     print len(result_lists)
     return result_lists
-
-for i in range(1,10):
-    get_follow_lists(url,'ruanyf',True,i)
