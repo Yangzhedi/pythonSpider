@@ -6,6 +6,7 @@
  2. page_parsing.py
 
 	**get_links_from**  利用get_channel_urls返回的种类url获取每一种商品具体的每一个商品的url
+	
 	**get_item_info**    利用get_links_from的每一个商品的url获取每一个商品的大致信息（标题，价格，地区），返回一个由title,price,area组成的字典。
  3. main.py
 

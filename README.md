@@ -26,4 +26,11 @@ get_follow_lists(url,person,boo，pages)：
 方法返回当前page的following或者followers的列表，结合*get_follow_counts_pages*结合可以获取所以的following或者followers的列表
 
 
-###githubFollowXXList 模块：
+###githubUserInfo 模块：
+
+```
+get_user_info(url,person)：
+```
+获取用户的全称，介绍，项目个数，关注人数，粉丝人数，送出多少star，
+
+并返回一个字典，包含这些信息
