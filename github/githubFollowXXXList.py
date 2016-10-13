@@ -6,7 +6,7 @@ import time
 url = 'https://github.com/'
 default_url = 'https://github.com'
 headers = {
-    'User-Agent': # ur user-Agent here
+    'User-Agent': '' # ur user-Agent here
 }
 
 result_lists = []

@@ -23,8 +23,4 @@ get_follow_lists(url,person,boo，pages)：
 
 **url**, **person** ,**boo**和上一个方法一样，**pages**是指想获取第几页的following或者followers的列表
 
-方法返回当前page的following或者followers的列表，结合
-```
-get_follow_counts_pages
-```
-可以获取所以的following或者followers的列表
+方法返回当前page的following或者followers的列表，结合*get_follow_counts_pages*结合可以获取所以的following或者followers的列表
