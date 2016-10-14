@@ -11,14 +11,15 @@ headers = {
 
 result_lists = []
 
-def counts2pages(Tag):
+
+def count(Tag):
     str = Tag.get_text().replace(' ','').strip('\n').encode('utf-8')
     leng = len(str)-1
     if str[-1] == 'k':
-        pages = int(float(str[:leng]) * 1000)/51 + 1
+        count = int(float(str[:leng]) * 1000)
     else:
-        pages = int(str)/51 + 1
-    return pages
+        count = int(str)
+    return count
 
 def get_follow_counts_pages(url,person,boo):
     followXXX = 'following' if boo else 'followers'
@@ -28,9 +29,9 @@ def get_follow_counts_pages(url,person,boo):
     counts = soup.select('div.user-profile-nav > nav > a.underline-nav-item > span')
     # 如果boo 是真，说明是following ，counts[3]
     if boo:
-        return counts2pages(counts[3])
+        return (count(counts[3]))/51 + 1
     else:
-        return counts2pages(counts[2])
+        return (count(counts[2]))/51 + 1
 
 def get_follow_lists(url,person,boo,pages = 1):
     # 组url
@@ -39,8 +40,6 @@ def get_follow_lists(url,person,boo,pages = 1):
     data = requests.get(true_url, headers=headers)
     soup = BeautifulSoup(data.text, 'lxml')
     lists = soup.select('div.d-table > div.d-table-cell > a.d-inline-block')
-    if lists == []:
-        print 'yaoxiugaiisgoon'
     for i in lists:
         result_lists.append(default_url+i.get('href'))
         print default_url+i.get('href')
