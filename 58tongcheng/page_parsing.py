@@ -36,8 +36,10 @@ def get_item_info(url):
     if no_longer_exist:
         pass
     else:
-        title = soup.title.text
+        title_soup = soup.title.text
+        title = title_soup.split('_')[0]
+        user = title_soup.split('_')[1].split('-')[0].split('的闲置物品')[0]
         price = soup.select('span.price_now i')[0].text
         area = soup.select('.palce_li span i')[0].text # if soup.find_all('span', 'c_25d') else None
-        item_info.insert_one({'title': title, 'price': price, 'area': area, 'url': url})
-        print {'title': title, 'price': price, 'area': area}
+        item_info.insert_one({'title': title, 'price': price, 'area': area, 'url': url, 'user': user})
+        print {'title': title, 'price': price, 'area': area, 'user': user}
