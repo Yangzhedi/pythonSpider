@@ -23,7 +23,6 @@ if os.path.exists(folder_path) == False:
 for i in imgs:
     # print i.get('src')
     img_link.append(i.get('src'))
-#     # print i.get('data-actualsrc')
 
 for index,item in enumerate(img_link):
     urllib.urlretrieve(item, folder_path + str(index)+'.jpg')
