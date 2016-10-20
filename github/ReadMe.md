@@ -3,7 +3,7 @@
 
  - `count(Tag)：`
 
- **Tag**：传入一个tag对象例如![Tag](http://yangzhedi.github.io/img/tag.png)
+ **Tag**：传入一个tag对象例如![Tag](http://yangzhedi.github.io/img/tag1.png)
  然后返回此tag下的人数，（出现k时候会有误差）
 
  方法返回获取当前tag下的人数
