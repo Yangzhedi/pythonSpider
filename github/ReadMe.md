@@ -3,7 +3,7 @@
 
  - ```
 count(Tag)：
-```
+   ```
 
  **Tag**：传入一个tag对象例如![Tag](http://github.com/Yangzhedi/pythonSpider/github/imgs/tag.png)
  然后返回此tag下的人数，（出现k时候会有误差）
@@ -12,7 +12,7 @@ count(Tag)：
 
  - ```
 get_follow_counts_pages(url,person,boo)：
-```
+   ```
 
  **url**就是github的网址：'https://github.com/'
 
@@ -26,7 +26,7 @@ get_follow_counts_pages(url,person,boo)：
 
  - ```
 get_follow_lists(url,person,boo，pages)：
-```
+   ```
 
  **url**, **person** ,**boo**和上一个方法一样，
  **pages**是指想获取第几页的following或者followers的列表
