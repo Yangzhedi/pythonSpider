@@ -19,7 +19,6 @@
  方法返回获取当前人物的获取following或者followers的页数
 
 
-
  - `get_follow_lists(url,person,boo，pages)：`
 
  **url**, **person** ,**boo**和上一个方法一样，
@@ -31,6 +30,6 @@
 ###githubUserInfo 模块：
 
  - `get_user_info(url,person)：`
- 
+
  返回一个字典:包含用户的全称，个人介绍，项目个数，关注人数，粉丝人数,共送出多少star，
  
