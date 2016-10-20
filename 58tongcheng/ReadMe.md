@@ -1,16 +1,28 @@
 # 58
+###tc_urlLists 模块：
 
- 1. channel_extact.py
+ - `get_channel_urls(url)：`
 
-	 **get_channel_urls**   获取所有的商品种类url,存在 *channel_list* 中
- 2. page_parsing.py
+ **url**：起始url
 
-	**get_links_from**  利用get_channel_urls返回的种类url获取每一种商品具体的每一个商品的url
-	
-	**get_item_info**    利用get_links_from的每一个商品的url获取每一个商品的大致信息（标题，价格，地区），返回一个由title,price,area组成的字典。
- 3. main.py
+ 通过起始url获取所有的二级商品链接，存放在channel_list中 以便后续使用
 
- 	开启多进程，调用 *get_links_from* 和 *channel_list* 来抓去所有商品的信息
- 4. count.py
+###tc_itemInfo 模块：
 
-	监测数据库中有多少条数据，每2秒打印一次
+ - `get_links_from(channel, pages, who_sells=0):`
+
+ **channel**：58同城下的二级菜单的类别，**pages**：页数
+
+ 获取所有的商品种类url,存在 *channel_list* 中
+
+ - `get_item_info(url)：`
+
+ **url**：58同城商品的链接
+
+ 方法返回商品的title、用户 、价格 、地区，并可以存放在数据库中（mongoDB） 
+
+###main 和 count 模块：
+ 
+ **get_all_links_from**：开启多进程，调用*tc_urlLists*的channel_list 和 *tc_itemInfo*的get_links_from获取全部url的全部详细信息
+
+ count.py用来监测数据库中有多少条数据，每2秒打印一次

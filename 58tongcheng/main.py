@@ -1,7 +1,7 @@
 # coding:utf-8
 from multiprocessing import Pool
 from tc_urlLists import channel_list
-from page_parsing import get_links_from
+from tc_itemInfo import get_links_from
 
 def get_all_links_from(channel):
     for num in range(1,101):

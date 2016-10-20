@@ -1,5 +1,5 @@
 # github
-###githubFollowXXList 模块：
+###github_followXXList 模块：
 
  - `count(Tag)：`
 
@@ -27,7 +27,7 @@
  方法返回当前page的following或者followers的列表，结合*get_follow_counts_pages*结合可以获取所有page的following或者followers的列表
 
 
-###githubUserInfo 模块：
+###github_userInfo 模块：
 
  - `get_user_info(url,person)：`
 
