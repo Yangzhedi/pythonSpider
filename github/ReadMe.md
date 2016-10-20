@@ -1,18 +1,14 @@
 # github
 ###githubFollowXXList 模块：
 
- - ```
-count(Tag)：
-   ```
+ - `count(Tag)：`
 
- **Tag**：传入一个tag对象例如![Tag](http://github.com/Yangzhedi/pythonSpider/github/imgs/tag.png)
+ **Tag**：传入一个tag对象例如![Tag](http://yangzhedi.github.io/img/tag.png)
  然后返回此tag下的人数，（出现k时候会有误差）
 
  方法返回获取当前tag下的人数
 
- - ```
-get_follow_counts_pages(url,person,boo)：
-   ```
+ - `get_follow_counts_pages(url,person,boo)：`
 
  **url**就是github的网址：'https://github.com/'
 
@@ -24,9 +20,7 @@ get_follow_counts_pages(url,person,boo)：
 
 
 
- - ```
-get_follow_lists(url,person,boo，pages)：
-   ```
+ - `get_follow_lists(url,person,boo，pages)：`
 
  **url**, **person** ,**boo**和上一个方法一样，
  **pages**是指想获取第几页的following或者followers的列表
@@ -36,8 +30,7 @@ get_follow_lists(url,person,boo，pages)：
 
 ###githubUserInfo 模块：
 
- - ```
-get_user_info(url,person)：
-```
+ - `get_user_info(url,person)：`
+ 
  返回一个字典:包含用户的全称，个人介绍，项目个数，关注人数，粉丝人数,共送出多少star，
  
