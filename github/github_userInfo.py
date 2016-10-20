@@ -1,7 +1,7 @@
 # coding:utf-8
 import requests
 from bs4 import BeautifulSoup
-from githubFollowXXXList import count
+from github_followXXXList import count
 import time
 
 url = 'https://github.com/'
