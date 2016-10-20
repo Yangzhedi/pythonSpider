@@ -1,5 +1,5 @@
 import time
-from page_parsing import url_list
+from tc_itemInfo import url_list
 
 while True:
     print url_list.find().count()

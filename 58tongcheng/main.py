@@ -1,6 +1,6 @@
 # coding:utf-8
 from multiprocessing import Pool
-from channel_extact import channel_list
+from tc_urlLists import channel_list
 from page_parsing import get_links_from
 
 def get_all_links_from(channel):
