@@ -1,5 +1,4 @@
-# pythonSpider
-some python spiders with BeautifulSoup & requests
+# BS4
 
 ## [github](github)
 - 爬取关注或粉丝列表 [followXXXList.py](github/github_followXXXList.py)
