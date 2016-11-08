@@ -41,4 +41,7 @@ def get_user_info(url):
     }
     print dic
     return dic
-get_user_info(url)
+# get_user_info(url)
+s1 = set(['1', '22222222', '33'])
+s1.add('11')
+print len(s1)
