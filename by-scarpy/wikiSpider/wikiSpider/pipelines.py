@@ -8,4 +8,5 @@
 
 class WikispiderPipeline(object):
     def process_item(self, item, spider):
+        print item['title']
         return item
