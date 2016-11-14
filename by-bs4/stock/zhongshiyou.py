@@ -1,3 +1,4 @@
+# coding:utf-8
 import requests
 from bs4 import BeautifulSoup
 import os
@@ -63,7 +64,6 @@ def sharesCrawl2(shareCode,year,month):
 
 
 def createUrl(shareCode,beginYear,endYear):
-
     title = str(shareCode)
 
     if os.path.exists('./'+title) == False:
@@ -72,13 +72,17 @@ def createUrl(shareCode,beginYear,endYear):
 
     f = open('./' + title + '.txt', 'wb')
 
-    for i in range(beginYear,endYear+1):
-        print i
-        # time.sleep(5)
-        for j in range(1,5):
-            f.write(sharesCrawl2(shareCode,i,j) + '\n ------- '+str(i)+'/'+str(j)+'----------------\n')
-            time.sleep(5)
-    f.close()
+    try:
+        for i in range(beginYear,endYear+1):
+            print i
+            # time.sleep(5)
+            for j in range(1,5):
+                f.write(sharesCrawl2(shareCode,i,j) + '\n ------- '+str(i)+'/'+str(j)+'----------------\n')
+                time.sleep(5)
+    except:
+        print '没有进入循环'
+    finally:
+        f.close()
 
 createUrl(601857,2008,2016)
 
