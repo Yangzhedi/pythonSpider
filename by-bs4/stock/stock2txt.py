@@ -13,26 +13,26 @@ url = 'http://quotes.money.163.com/trade/lsjysj_601857.html?year=2016&season=4'
 
 
 # parameter
-# shareCode/year/month : num ,
-def sharesCrawl(shareCode,year,month):
+# shareCode/year/season : num ,
+def sharesCrawl(shareCode,year,season):
     shareCodeStr = str(shareCode)
     yearStr = str(year)
-    monthStr = str(month)
-    url = 'http://quotes.money.163.com/trade/lsjysj_'+shareCodeStr+'.html?year='+yearStr+'&season='+monthStr
+    seasonStr = str(season)
+    url = 'http://quotes.money.163.com/trade/lsjysj_'+shareCodeStr+'.html?year='+yearStr+'&season='+seasonStr
 
     data = requests.get(url, headers=headers)
     soup = BeautifulSoup(data.text, 'lxml')
     # print soup
     title = soup.select('h1.name > a')[0].get_text()
 
-    date = soup.select('div.inner_box > table > tr > td')
+    stockData = soup.select('div.inner_box > table > tr > td')
 
     if os.path.exists('./'+shareCodeStr+title) == False:
         #create the share folder
         os.mkdir('./'+shareCodeStr+title)
 
-    f = open('./'+shareCodeStr+title+'/Y'+yearStr+'S'+monthStr+'.txt','wb')
-    for index,value in enumerate(date):
+    f = open('./'+shareCodeStr+title+'/Y'+yearStr+'S'+seasonStr+'.txt','wb')
+    for index,value in enumerate(stockData):
         if index % 11 == 10:
             f.write(value.get_text()+'\n')
         else:
@@ -43,16 +43,16 @@ def sharesCrawl(shareCode,year,month):
 
 
 
-def sharesCrawl2(shareCode,year,month):
+def sharesCrawl2(shareCode,year,season):
     shareCodeStr = str(shareCode)
     yearStr = str(year)
-    monthStr = str(month)
-    url = 'http://quotes.money.163.com/trade/lsjysj_' + shareCodeStr + '.html?year=' + yearStr + '&season=' + monthStr
+    seasonStr = str(season)
+    url = 'http://quotes.money.163.com/trade/lsjysj_' + shareCodeStr + '.html?year=' + yearStr + '&season=' + seasonStr
     data = requests.get(url, headers=headers)
     soup = BeautifulSoup(data.text, 'lxml')
-    date = soup.select('div.inner_box > table > tr > td')
+    stockData = soup.select('div.inner_box > table > tr > td')
     resultString = ''
-    for index, value in enumerate(date):
+    for index, value in enumerate(stockData):
         if index % 11 == 10:
             resultString += value.get_text() + '\n'
         else:
@@ -80,7 +80,7 @@ def createUrl(shareCode,beginYear,endYear):
                 f.write(sharesCrawl2(shareCode,i,j) + '\n ------- '+str(i)+'/'+str(j)+'----------------\n')
                 time.sleep(5)
     except:
-        print '没有进入循环'
+        print '----- 爬虫出错了！没有进入循环-----'
     finally:
         f.close()
 
