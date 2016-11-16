@@ -24,8 +24,15 @@ def sharesCrawl(shareCode,year,season):
     table = soup.findAll('table',{'class':'table_bg001'})[0]
     rows = table.findAll('tr')
 
+    # for row in rows:
+    #     if row.findAll('td') != []:
+    #         for cell in row.findAll('td'):
+    #             print cell
+    #     else:
+    #         print 'sadasdad'
     return rows[::-1]
 
+# sharesCrawl(601857, 2007, 2)
 
 def writeCSV(shareCode,beginYear,endYear):
     shareCodeStr = str(shareCode)
@@ -42,10 +49,12 @@ def writeCSV(shareCode,beginYear,endYear):
                 rows = sharesCrawl(shareCode,i,j)
                 for row in rows:
                     csvRow = []
-                    for cell in row.findAll('td'):
-                        csvRow.append(cell.get_text().replace(',',''))
-                    if csvRow != []:
-                        writer.writerow(csvRow)
+                    # 判断是否有数据
+                    if row.findAll('td') != []:
+                        for cell in row.findAll('td'):
+                            csvRow.append(cell.get_text().replace(',',''))
+                        if csvRow != []:
+                            writer.writerow(csvRow)
                 time.sleep(3)
                 print str(i) + '年' + str(j) + '季度is done'
     except:
@@ -53,5 +62,5 @@ def writeCSV(shareCode,beginYear,endYear):
     finally:
         csvFile.close()
 
-writeCSV(601857,2016,2016)
+writeCSV(601857,2007,2016)
 
