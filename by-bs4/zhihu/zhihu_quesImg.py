@@ -1,9 +1,15 @@
+# coding:utf-8
 import requests
 import urllib
 from bs4 import BeautifulSoup
 import time
+import os
 
-url = 'https://www.zhihu.com/question/47371654'
+
+quesNumStr = str(input("请输入问题数字："))
+
+
+url = 'https://www.zhihu.com/question/'+quesNumStr
 
 headers = {
     'User-Agent':'',  # your user-Agent here
@@ -13,9 +19,13 @@ headers = {
 data = requests.get(url, headers=headers)
 soup = BeautifulSoup(data.text, 'lxml')
 imgs = soup.select('div.zm-editable-content > img')
+title = soup.select('#zh-question-title > h2 > span')[0].get_text()
 
 img_link = []
-folder_path = 'E://python/4weeks/jiandan/zhihuimg/'
+folder_path = './'+title+'/'
+if os.path.exists(folder_path) == False:
+    # create the image folder
+    os.mkdir(folder_path)
 
 for i in imgs:
     img_link.append(i.get('data-actualsrc'))
@@ -23,7 +33,8 @@ for i in imgs:
 
 # if folder_path == False:
 #     open(folder_path,'wr')
-print len(img_link)
+print title
+print str(len(img_link))+'张图片'
 
 for index,item in enumerate(img_link):
     urllib.urlretrieve(item, folder_path + str(index)+'.jpg')
