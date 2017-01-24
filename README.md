@@ -1,5 +1,5 @@
 # pythonSpider
-some python spiders with BeautifulSoup & requests
+some python spiders with BeautifulSoup & requests or scrapy
 
 ##by-bs4
 
@@ -25,6 +25,6 @@ some python spiders with BeautifulSoup & requests
 - 获取该支股票的所有交易数据并写入以其股票代码命名的csv中 [stock2csvALL.py](by-bs4/stock/stock2csvALL.py)
 - 获取该支股票的所有交易数据并写入以其股票代码和名字命名的csv中 [stock2csvALLWithName.py](by-bs4/stock/stock2csvALLWithName.py)
 
-##scarpy
+##scrapy
 
 ### [wiki](by-scarpy/wikiSpider)
